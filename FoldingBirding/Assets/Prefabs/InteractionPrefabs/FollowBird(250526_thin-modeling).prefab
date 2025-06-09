@@ -111,6 +111,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3855048053530803523}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4650665043467095075}
   m_SourcePrefab: {fileID: 100100000, guid: e06ff4bbea521ba4bba3daffe6ab6954, type: 3}
 --- !u!1 &9050936380787692866 stripped
 GameObject:
@@ -133,4 +137,16 @@ MonoBehaviour:
   palmTransform: {fileID: 0}
   localOffset: {x: 0, y: -0.05, z: 0.1}
   followSpeed: 3
-  maxAllowedDistance: 1
+--- !u!114 &4650665043467095075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9050936380787692866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2548f234a2ecbe74381c862aca8b5bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 0.5

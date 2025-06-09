@@ -9,7 +9,16 @@ public class HandAboveHeadDetector : MonoBehaviour
     public Transform handTransform;  // 손 위치 (왼손 or 오른손)
     public float yOffset = 0.15f;    // 머리보다 얼마나 위로 올라가야 하는지 기준
 
-    private bool hasTriggered = false;
+    private GameObject bird;
+    private bool isMovingBird = false;
+
+    public float birdMoveSpeed = 2f;
+
+    void Start()
+    {
+        bird = GameObject.FindWithTag("MyBird");
+    }
+
 
     void Update()
     {
@@ -21,15 +30,20 @@ public class HandAboveHeadDetector : MonoBehaviour
 
         if (handY > headY + yOffset)
         {
-            if (!hasTriggered)
+            if (!isMovingBird)
             {
                 Debug.Log("[HandAboveHeadDetector] 손이 머리 위로 올라갔습니다!");
-                hasTriggered = true;
+                isMovingBird = true;
             }
         }
         else
         {
-            hasTriggered = false;
+            isMovingBird = false;
+        }
+
+        if (isMovingBird && bird != null)
+        {
+            bird.transform.position = Vector3.Lerp(bird.transform.position, headTransform.position + headTransform.forward * 0.5f, Time.deltaTime * birdMoveSpeed);
         }
     }
 }
