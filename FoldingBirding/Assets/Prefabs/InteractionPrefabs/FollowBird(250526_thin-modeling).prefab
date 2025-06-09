@@ -96,7 +96,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
         type: 3}
       propertyPath: m_Name
-      value: 250526_thin-modeling
+      value: FollowBird(250526_thin-modeling)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
+        type: 3}
+      propertyPath: m_TagString
+      value: MyBird
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -126,5 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palmTransform: {fileID: 0}
-  offset: {x: 0, y: 0.05, z: 0}
-  followSpeed: 5
+  localOffset: {x: 0, y: -0.05, z: 0.1}
+  followSpeed: 3
+  maxAllowedDistance: 1
