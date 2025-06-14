@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     [Header("Value")]
     [SerializeField] private float forwardOffset;
     [SerializeField] private float upOffset;
-    [SerializeField] private float velocity;
 
     private (string dialogue, float delay)[] dialogues = new (string, float)[]
     {
@@ -29,12 +28,6 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UIObject.position = centerEyeAnchor.position + centerEyeAnchor.forward * forwardOffset + centerEyeAnchor.up * upOffset;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void PressStartBtn()
