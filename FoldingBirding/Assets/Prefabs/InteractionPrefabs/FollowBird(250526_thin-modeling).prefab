@@ -118,6 +118,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 8424904237461329835}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 9123036401684768708}
   m_SourcePrefab: {fileID: 100100000, guid: e06ff4bbea521ba4bba3daffe6ab6954, type: 3}
 --- !u!1 &9050936380787692866 stripped
@@ -154,6 +158,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 0.5
+--- !u!114 &8424904237461329835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9050936380787692866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb434755a94454b4ab688711124000a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdMoveSpeed: 2
+  moveDirection: {x: 0, y: 1, z: 1}
 --- !u!135 &9123036401684768708
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -169,7 +187,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
