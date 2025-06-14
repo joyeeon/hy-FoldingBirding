@@ -27,6 +27,7 @@ public class BirdDistanceManager : MonoBehaviour
             if (distance <= maxDistance)
             {
                 Debug.Log("[BirdDistanceManager] 가까운 새 발견: 인터랙션 허용");
+                StateManager.instance.birdState = StateManager.BirdState.Follow;
                 return true;
             }
         }
