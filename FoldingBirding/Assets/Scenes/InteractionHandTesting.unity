@@ -20557,6 +20557,21 @@ PrefabInstance:
       propertyPath: _transformFeatureStateProvider
       value: 
       objectReference: {fileID: 1859199087}
+    - target: {fileID: 4156707178636826069, guid: 8e5c1a6a034d437448987038772c68a2,
+        type: 3}
+      propertyPath: _transformFeatureConfigs._values.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156707178636826069, guid: 8e5c1a6a034d437448987038772c68a2,
+        type: 3}
+      propertyPath: _transformFeatureConfigs._values.Array.data[0]._state
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156707178636826069, guid: 8e5c1a6a034d437448987038772c68a2,
+        type: 3}
+      propertyPath: _transformFeatureConfigs._values.Array.data[0]._feature
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7211125274835690137, guid: 8e5c1a6a034d437448987038772c68a2,
         type: 3}
       propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.size
