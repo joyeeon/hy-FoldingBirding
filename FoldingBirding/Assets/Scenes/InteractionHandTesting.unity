@@ -16847,7 +16847,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9050936380787692866, guid: 8290a2115561aa8409ec5f7e2074d6e1,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1794080983}
   m_SourcePrefab: {fileID: 100100000, guid: 8290a2115561aa8409ec5f7e2074d6e1, type: 3}
 --- !u!114 &1794080981 stripped
 MonoBehaviour:
@@ -16855,12 +16859,32 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1794080980}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1794080982}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6156db339a31bf41878ad6f84bb00d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1794080982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9050936380787692866, guid: 8290a2115561aa8409ec5f7e2074d6e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1794080980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794080983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794080982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb434755a94454b4ab688711124000a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdMoveSpeed: 2
+  moveDirection: {x: 0, y: 1, z: 1}
 --- !u!1 &1795764299
 GameObject:
   m_ObjectHideFlags: 0
@@ -21011,23 +21035,48 @@ PrefabInstance:
     - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1794080981}
+      objectReference: {fileID: 1794080983}
     - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1794080981}
+      objectReference: {fileID: 1794080983}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerBirdFlyAway
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CloseBirdFlyAway
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ByeInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ByeInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -21037,6 +21086,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Bye close
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608711170383125078, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8234752252042071898, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
@@ -21105,9 +21164,9 @@ SceneRoots:
   - {fileID: 1266215391}
   - {fileID: 208582437}
   - {fileID: 282599500318403391}
+  - {fileID: 7137830600441073574}
   - {fileID: 1960220585373898172}
   - {fileID: 977145154}
   - {fileID: 1794080980}
   - {fileID: 613681148875260591}
   - {fileID: 6625704942467404189}
-  - {fileID: 7137830600441073574}
