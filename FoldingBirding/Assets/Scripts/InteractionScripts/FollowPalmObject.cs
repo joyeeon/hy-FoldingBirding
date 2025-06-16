@@ -14,10 +14,12 @@ public class FollowPalmObject : MonoBehaviour
 
     private bool isPalmGestureActive = false;
     private BirdDistanceManager distanceManager;
+    private BirdFollower birdFollower;
 
     void Start()
     {
         distanceManager = FindObjectOfType<BirdDistanceManager>();
+        birdFollower = GetComponent<BirdFollower>(); // 같은 오브젝트에 붙어있다고 가정
     }
 
     void Update()
@@ -33,12 +35,17 @@ public class FollowPalmObject : MonoBehaviour
         if (distanceManager != null && distanceManager.IsAnyBirdClose())
         {
             isPalmGestureActive = true;
+            // 기본 따라오기 멈춤
+            birdFollower?.SetExternalControl(true);
+
         }
     }
 
     public void OnPalmGestureEnded()
     {
         isPalmGestureActive = false;
+        birdFollower?.SetExternalControl(false);
+        //GetComponent<BirdFollower>()?.SetFollowing(true);
     }
 
 

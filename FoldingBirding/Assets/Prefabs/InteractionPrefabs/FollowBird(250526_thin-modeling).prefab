@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e06ff4bbea521ba4bba3daffe6ab6954,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 13.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e06ff4bbea521ba4bba3daffe6ab6954,
         type: 3}
@@ -122,6 +122,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3640450733290341047}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e06ff4bbea521ba4bba3daffe6ab6954,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 9123036401684768708}
   m_SourcePrefab: {fileID: 100100000, guid: e06ff4bbea521ba4bba3daffe6ab6954, type: 3}
 --- !u!1 &9050936380787692866 stripped
@@ -172,6 +176,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdMoveSpeed: 2
   moveDirection: {x: 0, y: 1, z: 1}
+--- !u!114 &3640450733290341047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9050936380787692866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb22cbb5f668b994c8c7d4acb0de7ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hmdTransform: {fileID: 0}
+  followDistance: 1
+  followHeightOffset: 0.3
+  followSpeed: 3
+  maxFollowStartDistance: 0.7
+  stopFollowDistance: 2
+  isFollowing: 1
 --- !u!135 &9123036401684768708
 SphereCollider:
   m_ObjectHideFlags: 0

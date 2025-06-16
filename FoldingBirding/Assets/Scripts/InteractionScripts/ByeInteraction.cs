@@ -12,10 +12,13 @@ public class ByeInteraction : MonoBehaviour
     public float birdMoveSpeed = 2f;
     public Vector3 moveDirection = new Vector3(0, 1, 1);
 
+    private BirdFollower birdFollower;
+
     void Start()
     {
         bird = GameObject.FindWithTag("MyBird");
         moveDirection = moveDirection.normalized;
+        birdFollower = GetComponent<BirdFollower>();
     }
 
     // Update is called once per frame
@@ -30,10 +33,16 @@ public class ByeInteraction : MonoBehaviour
     public void TriggerBirdFlyAway()
     {
         isMovingBird = true;
+        // 새가 따라오지 않도록 설정
+        birdFollower?.SetExternalControl(true);
+        //bird.GetComponent<BirdFollower>()?.SetFollowing(false);
     }
 
     public void CloseBirdFlyAway()
     {
         isMovingBird = false;
+        // 새가 따라오도록 설정
+        birdFollower?.SetExternalControl(false);
+        //bird.GetComponent<BirdFollower>()?.SetFollowing(true);
     }
 }
