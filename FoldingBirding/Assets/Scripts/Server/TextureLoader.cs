@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,13 +7,21 @@ using UnityEngine.Networking;
 
 public class TextureLoader : MonoBehaviour
 {
-    public string serverUrl = "http://localhost:8000"; // FastAPI 서버 주소
-    public Transform scrollParent; // 닉네임 버튼이 붙을 부모 오브젝트
-    public GameObject nicknameButtonPrefab;
-    public Material targetMaterial;
+    public string serverUrl = "http://localhost:8000"; 
+    [SerializeField] private Transform contents;// content parent
+    [SerializeField] private GameObject contentPrefab; // nicknameButtonPrefab parent
+    [SerializeField] private GameObject nicknameButtonPrefab;
+    [SerializeField] private Material targetMaterial;
+
+    private GameObject curContent;
+    private int contentAmout = 0;
+    private int nicknameAmout = 0;
+    private int curContentNum = 0;
 
     void Start()
     {
+        targetMaterial.SetColor("_BaseColor", Color.white);
+        targetMaterial.SetTexture("_BaseMap", null);
         StartCoroutine(FetchTextureList());
     }
 
@@ -30,12 +39,24 @@ public class TextureLoader : MonoBehaviour
 
         string json = req.downloadHandler.text;
         TextureListWrapper data = JsonUtility.FromJson<TextureListWrapper>(json);
-
+        
         foreach (string name in data.nicknames)
         {
-            GameObject btn = Instantiate(nicknameButtonPrefab, scrollParent);
-            btn.GetComponentInChildren<TextMeshProUGUI>().text = name;
-            btn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => StartCoroutine(DownloadTexture(name)));
+            if(nicknameAmout % 24 == 0)
+            {
+                curContent = Instantiate(contentPrefab, contents);
+                contentAmout++;
+
+                if (contentAmout != 1)
+                {
+                    curContent.SetActive(false);
+                }
+            }
+            GameObject btn = Instantiate(nicknameButtonPrefab, curContent.transform);
+            btn.GetComponentInChildren<TMP_Text>().text = name;
+            btn.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(() => StartCoroutine(DownloadTexture(name)));
+
+            nicknameAmout++;
         }
     }
 
@@ -60,5 +81,25 @@ public class TextureLoader : MonoBehaviour
     public class TextureListWrapper
     {
         public List<string> nicknames;
+    }
+
+    public void showForwawrd()
+    {
+        if(curContentNum < contentAmout - 1)
+        {
+            contents.GetChild(curContentNum).gameObject.SetActive(false);
+            contents.GetChild(curContentNum + 1).gameObject.SetActive(true);
+            curContentNum++;
+        }
+    }
+
+    public void showBackwawrd()
+    {
+        if (curContentNum > 0)
+        {
+            contents.GetChild(curContentNum).gameObject.SetActive(false);
+            contents.GetChild(curContentNum - 1).gameObject.SetActive(true);
+            curContentNum--;
+        }
     }
 }
