@@ -9,7 +9,7 @@ using UnityEngine;
 public class FollowPalmObject : MonoBehaviour
 {
     public Transform palmTransform;
-    public Vector3 localOffset = new Vector3(0, -0.1f, 3f);
+    public Vector3 localOffset = new Vector3(0, -0.1f, 0);
     public float followSpeed = 10f;
 
     private bool isPalmGestureActive = false;
