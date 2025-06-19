@@ -37,6 +37,7 @@ public class BirdFollower : MonoBehaviour
         {
             Debug.Log("[BirdFollower] 새가 가까워졌습니다. 따라오기 시작합니다.");
             isFollowing = true;
+            //StateManager.instance.SetInteraction(InteractionState.Follow);
         }
 
         // 따라오기 로직

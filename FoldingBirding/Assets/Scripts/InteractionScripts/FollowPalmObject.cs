@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -39,7 +40,7 @@ public class FollowPalmObject : MonoBehaviour
             isPalmGestureActive = true;
             // ±âº» µû¶ó¿À±â ¸ØÃã
             birdFollower?.SetExternalControl(true);
-
+            //StateManager.instance.SetInteraction(InteractionState.Palm);
         }
     }
 
