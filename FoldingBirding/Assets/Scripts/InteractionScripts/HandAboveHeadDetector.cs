@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +28,6 @@ public class HandAboveHeadDetector : MonoBehaviour
         float handY = handTransform.position.y;
         
         // 매 프레임 손과 머리의 Y 좌표 로그 출력
-        //Debug.Log($"[HandAboveHeadDetector] Head Y: {headY:F2}, Hand Y: {handY:F2}");
 
         if (handY > headY + yOffset)
         {
@@ -35,12 +35,13 @@ public class HandAboveHeadDetector : MonoBehaviour
             {
                 Debug.Log("[HandAboveHeadDetector] 손이 머리 위로 올라갔습니다!");
                 isMovingBird = true;
+                //StateManager.instance.SetInteraction(InteractionState.Call);
+
             }
         }
         else
         {
             isMovingBird = false;
-            //bird.GetComponent<BirdFollower>()?.SetExternalControl(false); // 다시 따라오게
         }
 
         if (isMovingBird && bird != null)
@@ -50,6 +51,14 @@ public class HandAboveHeadDetector : MonoBehaviour
             Vector3 target = headTransform.position + headTransform.forward * 0.5f;
 
             bird.transform.position = Vector3.Lerp(bird.transform.position, headTransform.position + headTransform.forward * 0.5f, Time.deltaTime * birdMoveSpeed);
+
+            float distance = Vector3.Distance(bird.transform.position, target);
+            if (distance < 0.05f)
+            {
+                Debug.Log("새가 플레이어 앞에 도착함: Follow");
+                //StateManager.instance.SetInteraction(InteractionState.Follow); // 2단계: 따라다니기 시작
+                isMovingBird = false;
+            }
         }
     }
 }
