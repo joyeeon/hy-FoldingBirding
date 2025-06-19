@@ -4,7 +4,7 @@ using System.Drawing;
 using TMPro;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class OpeningManager : MonoBehaviour
 {
     [Header("Setting")]
     [SerializeField] private Transform centerEyeAnchor;
