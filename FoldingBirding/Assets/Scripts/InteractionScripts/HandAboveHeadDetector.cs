@@ -27,7 +27,6 @@ public class HandAboveHeadDetector : MonoBehaviour
         float handY = handTransform.position.y;
         
         // 매 프레임 손과 머리의 Y 좌표 로그 출력
-        //Debug.Log($"[HandAboveHeadDetector] Head Y: {headY:F2}, Hand Y: {handY:F2}");
 
         if (handY > headY + yOffset)
         {
@@ -35,6 +34,8 @@ public class HandAboveHeadDetector : MonoBehaviour
             {
                 Debug.Log("[HandAboveHeadDetector] 손이 머리 위로 올라갔습니다!");
                 isMovingBird = true;
+
+
             }
         }
         else
