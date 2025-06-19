@@ -97,8 +97,9 @@ public class FingerEvent : MonoBehaviour
 
     public void OnFingerEvent (bool isFingerUp)
     {
-        Debug.Log("OnFingerEvent »£√‚µ : " + isFingerUp);
+        //Debug.Log("OnFingerEvent »£√‚µ : " + isFingerUp);
         isSelected = isFingerUp;
+        //StateManager.instance.SetInteraction(InteractionState.Finger);
         if (!isFingerUp)
         {
             isBirdAttached = false; // º’∞°∂Ù ≥ª∏Æ∏È ¥ŸΩ√ ∂≥æÓ¡¸

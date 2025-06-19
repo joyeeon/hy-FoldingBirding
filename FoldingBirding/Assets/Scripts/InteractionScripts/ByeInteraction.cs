@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -35,7 +36,7 @@ public class ByeInteraction : MonoBehaviour
         isMovingBird = true;
         // 새가 따라오지 않도록 설정
         birdFollower?.SetExternalControl(true);
-        //bird.GetComponent<BirdFollower>()?.SetFollowing(false);
+        //StateManager.instance.SetInteraction(InteractionState.Bye);
     }
 
     public void CloseBirdFlyAway()
