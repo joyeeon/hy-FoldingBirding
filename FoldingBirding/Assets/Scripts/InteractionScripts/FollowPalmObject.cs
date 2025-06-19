@@ -16,6 +16,8 @@ public class FollowPalmObject : MonoBehaviour
     private BirdDistanceManager distanceManager;
     private BirdFollower birdFollower;
 
+    
+
     void Start()
     {
         distanceManager = FindObjectOfType<BirdDistanceManager>();
