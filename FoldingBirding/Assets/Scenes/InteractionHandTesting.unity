@@ -912,6 +912,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7194303222293801018, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
+      propertyPath: followSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194303222293801018, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
+        type: 3}
+      propertyPath: localOffset.y
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194303222293801018, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
+        type: 3}
       propertyPath: palmTransform
       value: 
       objectReference: {fileID: 1638259901}
@@ -928,12 +938,12 @@ PrefabInstance:
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9172267
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
@@ -20701,9 +20711,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 565881599911382448, guid: ae224205228d35548becd778369e9473,
         type: 3}
+      propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565881599911382448, guid: ae224205228d35548becd778369e9473,
+        type: 3}
       propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 70338972}
+    - target: {fileID: 565881599911382448, guid: ae224205228d35548becd778369e9473,
+        type: 3}
+      propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 565881599911382448, guid: ae224205228d35548becd778369e9473,
         type: 3}
       propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -20718,6 +20738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _whenUnselected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: OnPalmGestureEnded
+      objectReference: {fileID: 0}
+    - target: {fileID: 565881599911382448, guid: ae224205228d35548becd778369e9473,
+        type: 3}
+      propertyPath: _whenSelected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597062335786166484, guid: ae224205228d35548becd778369e9473,
         type: 3}

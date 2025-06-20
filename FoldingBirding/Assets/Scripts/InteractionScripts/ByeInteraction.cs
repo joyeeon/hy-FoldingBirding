@@ -36,7 +36,7 @@ public class ByeInteraction : MonoBehaviour
         isMovingBird = true;
         // 새가 따라오지 않도록 설정
         birdFollower?.SetExternalControl(true);
-        //StateManager.instance.SetInteraction(InteractionState.Bye);
+        StateManager.instance.SetInteractionState(StateManager.InteractionState.Bye);
     }
 
     public void CloseBirdFlyAway()
@@ -44,6 +44,6 @@ public class ByeInteraction : MonoBehaviour
         isMovingBird = false;
         // 새가 따라오도록 설정
         birdFollower?.SetExternalControl(false);
-        //bird.GetComponent<BirdFollower>()?.SetFollowing(true);
+        StateManager.instance.SetInteractionState(StateManager.InteractionState.Follow);
     }
 }
