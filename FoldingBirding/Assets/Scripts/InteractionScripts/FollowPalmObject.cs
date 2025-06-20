@@ -41,6 +41,7 @@ public class FollowPalmObject : MonoBehaviour
             // ±âº» µû¶ó¿À±â ¸ØÃã
             birdFollower?.SetExternalControl(true);
             //StateManager.instance.SetInteraction(InteractionState.Palm);
+            //StateManager.instance.SetInteractionState(StateManager.InteractionState.Palm);
         }
     }
 

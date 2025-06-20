@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sejin2.unity
     guid: 505871611c02f1744adddc358f3abe66
+  - enabled: 1
+    path: Assets/Scenes/JiyuAudio.unity
+    guid: 0a5a9710837df804a977c2a762edfc62
+  - enabled: 0
+    path: Assets/Scenes/Sejin.unity
+    guid: 53b6ea6af3b48e74786fc91cf123c7ca
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0adee1dd735627c4f95d162eff70509d,
       type: 2}
