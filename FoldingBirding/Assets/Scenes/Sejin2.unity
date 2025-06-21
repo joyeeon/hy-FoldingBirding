@@ -4475,7 +4475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &388222559
 Transform:
   m_ObjectHideFlags: 0
@@ -4484,13 +4484,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388222558}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1239}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0.1239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2060304650}
-  m_Father: {fileID: 1585640850}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &388222560
 MeshCollider:
@@ -10699,7 +10699,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e13d1e38cc371e439f4ab44b47eea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayTransitionQuad: {fileID: 0}
+  CameraRig: {fileID: 0}
+  UIObject: {fileID: 0}
+  displayQuad: {fileID: 0}
+  displayMat: {fileID: 0}
+  transitionTxt1: {fileID: 0}
+  transitionTxt2: {fileID: 0}
+  light: {fileID: 0}
+  forwardOffset: 0
+  upOffset: 0
 --- !u!4 &911960847
 Transform:
   m_ObjectHideFlags: 0
@@ -18548,8 +18556,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 388222559}
+  m_Children: []
   m_Father: {fileID: 1829015142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1585640851
@@ -26341,6 +26348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdState: 0
+  interactionState: 0
   debugTxt: {fileID: 1295742054}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -26349,6 +26357,7 @@ SceneRoots:
   - {fileID: 1266215391}
   - {fileID: 188570308}
   - {fileID: 208582437}
+  - {fileID: 388222559}
   - {fileID: 977145154}
   - {fileID: 468082314}
   - {fileID: 8561538620905574188}

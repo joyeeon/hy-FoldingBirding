@@ -7,11 +7,10 @@ using UnityEngine;
 public class OpeningManager : MonoBehaviour
 {
     [Header("Setting")]
-    [SerializeField] private Transform centerEyeAnchor;
-    [SerializeField] private Transform UIObject;
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TMP_Text dialogueTxt;
+    [SerializeField] private GameObject openingCanvas;
 
     [Header("Value")]
     [SerializeField] private float forwardOffset;
@@ -25,25 +24,35 @@ public class OpeningManager : MonoBehaviour
     };
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        UIObject.position = centerEyeAnchor.position + centerEyeAnchor.forward * forwardOffset + centerEyeAnchor.up * upOffset;
+        StartCoroutine(SetCanvas());
     }
+
+    private IEnumerator SetCanvas()
+    {
+        yield return new WaitForSeconds(0.3f); 
+
+        Camera cam = Camera.main;
+        if (cam == null) yield break;
+
+        Transform camTf = cam.transform;
+
+        Vector3 pos = camTf.position + camTf.forward * 0.1f;
+        pos.y = camTf.position.y;
+
+        openingCanvas.transform.position = pos;
+
+        openingCanvas.transform.LookAt(camTf);
+        openingCanvas.transform.Rotate(0, 180f, 0f); 
+    }
+
 
     public void PressStartBtn()
     {
         startUI.SetActive(false);
         StartCoroutine(ShowDialogue());
     }
-
-/*    private void MoveUI()
-    {
-        Vector3 targerPos = centerEyeAnchor.position + centerEyeAnchor.forward * forwardOffset - centerEyeAnchor.up * downOffset;
-            UIObject.position = Vector3.Lerp(UIObject.position, targerPos, Time.deltaTime * velocity);
-
-            UIObject.LookAt(centerEyeAnchor);
-            UIObject.transform.Rotate(0, 180, 0);
-    }*/
 
     private IEnumerator ShowDialogue()
     {
@@ -58,7 +67,7 @@ public class OpeningManager : MonoBehaviour
             yield return StartCoroutine(FadeEffect(0f, 0.5f));
         }
         yield return StartCoroutine(FadeEffect(0f, 0.5f));
-        dialogueUI.SetActive(false);   
+        SceneLoader.Instance.LoadScene(1);
     }
 
     private IEnumerator FadeEffect(float resAlpha, float duration)
