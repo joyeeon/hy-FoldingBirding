@@ -32,6 +32,7 @@ public class StateManager : MonoBehaviour
     [SerializeField] TMP_Text debugTxt;
 
     private Animator animator;
+    private BirdSoundPlayer soundPlayer;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        soundPlayer = GetComponent<BirdSoundPlayer>();
         SetInteractionState(InteractionState.Follow);
     }
 
@@ -60,10 +62,12 @@ public class StateManager : MonoBehaviour
             case InteractionState.Call:
                 interactionState = InteractionState.Call;
                 SetBirdState(BirdState.Translate);
+                soundPlayer?.PlaySound(iState);
                 break;
             case InteractionState.Bye:
                 interactionState = InteractionState.Bye;
                 SetBirdState(BirdState.Translate);
+                soundPlayer?.PlaySound(iState);
                 break;
             case InteractionState.Palm:
                 interactionState = InteractionState.Palm;
@@ -71,6 +75,7 @@ public class StateManager : MonoBehaviour
                 {
                     SetBirdState(BirdState.Land);
                 }
+                soundPlayer?.PlaySound(iState);
                 break;
             case InteractionState.Finger:
                 interactionState = InteractionState.Finger;
@@ -78,14 +83,17 @@ public class StateManager : MonoBehaviour
                 {
                     SetBirdState(BirdState.Land);
                 }
+                soundPlayer?.PlaySound(iState);
                 break;
             case InteractionState.Follow:
                 interactionState = InteractionState.Follow;
                 SetBirdState(BirdState.Follow);
+                soundPlayer?.PlaySound(iState);
                 break;
             case InteractionState.Pet:
                 interactionState = InteractionState.Pet;
                 SetBirdState(BirdState.Dance);
+                soundPlayer?.PlaySound(iState);
                 break;
         }
     }
