@@ -25,6 +25,11 @@ public class TextureLoader : MonoBehaviour
         StartCoroutine(FetchTextureList());
     }
 
+    public void FetchTextures()
+    {
+        StartCoroutine(FetchTextureList()); 
+    }
+
     IEnumerator FetchTextureList()
     {
         string url = $"{serverUrl}/textures";
@@ -74,7 +79,7 @@ public class TextureLoader : MonoBehaviour
 
         Texture2D tex = DownloadHandlerTexture.GetContent(req);
         targetMaterial.mainTexture = tex;
-        Debug.Log($"? {nickname} 텍스처 적용 완료");
+        Debug.Log($"? {nickname} Texturing");
     }
 
     [System.Serializable]

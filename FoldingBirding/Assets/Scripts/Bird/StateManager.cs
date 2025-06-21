@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class StateManager : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class StateManager : MonoBehaviour
 
     public BirdState birdState;
     public InteractionState interactionState;
-    [SerializeField] TMP_Text debugTxt;
+
+    [SerializeField] private VisualEffect musicVFX;
+    [SerializeField] private VisualEffect heartVFX;
 
     private Animator animator;
+    private float hopTime = 0f;
 
     private void Awake()
     {
@@ -40,17 +44,30 @@ public class StateManager : MonoBehaviour
             instance = this;
         }
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         animator = GetComponent<Animator>();
         SetInteractionState(InteractionState.Follow);
+
+        // For Confirm
+        PlayMusicVFX();
+        PlayHeartVFX();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        debugTxt.text = birdState.ToString();
+        TriggerHop();
+    }
+
+    private void PlayMusicVFX()
+    {
+        musicVFX.SendEvent("MusicVFX");
+    }
+
+    private void PlayHeartVFX()
+    {
+        heartVFX.SendEvent("HeartVFX");
     }
 
     public void SetInteractionState(InteractionState iState)
@@ -134,6 +151,22 @@ public class StateManager : MonoBehaviour
                 animator.SetTrigger("isDance");
                 birdState = BirdState.Sit;
                 break;
+        }
+    }
+
+    private void TriggerHop()
+    {
+        if (birdState == BirdState.Sit)
+        {
+            if (Time.time > hopTime)
+            {
+                hopTime = Time.time + 2f;
+                if (Random.value < 0.4f)
+                {
+                    Debug.Log("Bird Hops");
+                    animator.SetTrigger("isHop");
+                }
+            }
         }
     }
 
