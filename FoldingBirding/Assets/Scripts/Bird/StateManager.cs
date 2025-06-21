@@ -37,6 +37,7 @@ public class StateManager : MonoBehaviour
     private Animator animator;
     private float hopTime = 0f;
 
+
     private void Awake()
     {
         if (instance == null) 
