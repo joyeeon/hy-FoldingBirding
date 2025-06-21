@@ -4,8 +4,8 @@ public class EnvironmentManager : MonoBehaviour
 {
     public enum TimeOfDay { Day, Sunset, Night }
 
-    [Header("Skybox Material (NoFogForUnlit)")]
-    public Material skyboxMaterial;
+    [Header("하늘 Plane들 (5개)")]
+    public GameObject[] skyPlanes;
 
     [Header("Directional Light")]
     public Light directionalLight;
@@ -19,21 +19,23 @@ public class EnvironmentManager : MonoBehaviour
     private float timer = 0f;
     private TimeOfDay currentTime;
 
-    // 목표값
     private Color targetTopColor;
     private Color targetMiddleColor;
     private Color targetFogColor;
     private Vector3 targetLightRotation;
     private bool nightActive;
 
-    // 현재값
     private Color currentTopColor;
     private Color currentMiddleColor;
     private Color currentFogColor;
     private Vector3 currentLightRotation;
 
+    private readonly Color horizonColorFixed = Color.white;
+    private MaterialPropertyBlock propBlock;
+
     void Start()
     {
+        propBlock = new MaterialPropertyBlock();
         SetEnvironment(TimeOfDay.Day, immediate: true);
     }
 
@@ -41,34 +43,52 @@ public class EnvironmentManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer < 120f && currentTime != TimeOfDay.Day)
-            SetEnvironment(TimeOfDay.Day);
-        else if (timer >= 120f && timer < 240f && currentTime != TimeOfDay.Sunset)
-            SetEnvironment(TimeOfDay.Sunset);
-        else if (timer >= 240f && currentTime != TimeOfDay.Night)
-            SetEnvironment(TimeOfDay.Night);
+        TimeOfDay newTime;
+        if (timer < totalPlayTime * 0.4f)
+            newTime = TimeOfDay.Day;
+        else if (timer < totalPlayTime * 0.8f)
+            newTime = TimeOfDay.Sunset;
+        else
+            newTime = TimeOfDay.Night;
 
-        // Lerp 적용
-        float lerpSpeed = 0.5f * Time.deltaTime;
-
-        currentTopColor = Color.Lerp(currentTopColor, targetTopColor, lerpSpeed);
-        currentMiddleColor = Color.Lerp(currentMiddleColor, targetMiddleColor, lerpSpeed);
-        currentFogColor = Color.Lerp(currentFogColor, targetFogColor, lerpSpeed);
-        currentLightRotation = Vector3.Lerp(currentLightRotation, targetLightRotation, lerpSpeed);
-
-        if (skyboxMaterial != null)
+        if (newTime != currentTime)
         {
-            skyboxMaterial.SetColor("_TopSkyColor", currentTopColor);
-            skyboxMaterial.SetColor("_MiddleSkyColor", currentMiddleColor);
+            SetEnvironment(newTime);
+            Debug.Log("환경 전환: " + newTime);
         }
+
+        float speed = 0.5f * Time.deltaTime;
+        currentTopColor = Color.Lerp(currentTopColor, targetTopColor, speed);
+        currentMiddleColor = Color.Lerp(currentMiddleColor, targetMiddleColor, speed);
+        currentFogColor = Color.Lerp(currentFogColor, targetFogColor, speed);
+        currentLightRotation = Vector3.Lerp(currentLightRotation, targetLightRotation, speed);
 
         RenderSettings.fogColor = currentFogColor;
 
         if (directionalLight != null)
             directionalLight.transform.eulerAngles = currentLightRotation;
+
+        ApplySkyColorsToPlanes();
     }
 
-    public void SetEnvironment(TimeOfDay time, bool immediate = false)
+    void ApplySkyColorsToPlanes()
+    {
+        propBlock.SetColor("_TopSkyColor", currentTopColor);
+        propBlock.SetColor("_MiddleSkyColor", currentMiddleColor);
+        propBlock.SetColor("_HorizonColor", horizonColorFixed);
+
+        foreach (var plane in skyPlanes)
+        {
+            if (plane != null)
+            {
+                var renderer = plane.GetComponent<Renderer>();
+                if (renderer != null)
+                    renderer.SetPropertyBlock(propBlock);
+            }
+        }
+    }
+
+    void SetEnvironment(TimeOfDay time, bool immediate = false)
     {
         currentTime = time;
 
@@ -86,7 +106,7 @@ public class EnvironmentManager : MonoBehaviour
         }
     }
 
-    private void SetTarget(string topHex, string middleHex, string fogHex, Vector3 rotation, bool isNight, bool immediate)
+    void SetTarget(string topHex, string middleHex, string fogHex, Vector3 rotation, bool isNight, bool immediate)
     {
         targetTopColor = HexToColor(topHex);
         targetMiddleColor = HexToColor(middleHex);
