@@ -2,6 +2,7 @@ using Oculus.Interaction.Input;
 using Oculus.Platform;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FingerEvent : MonoBehaviour
@@ -71,9 +72,15 @@ public class FingerEvent : MonoBehaviour
             if (isBirdAttached)
             {
                 // 손가락 위에 붙이기
-                Vector3 offset = new Vector3(-0.35f, 0.02f, 0.09f);
-                Vector3 finalPosition = pose.position + pose.rotation * offset;
-                bird.transform.position = finalPosition;
+                Vector3 offset = new Vector3(-0.42f, -0.07f, 0.2f);
+                //Vector3 finalPosition = pose.position + pose.rotation * offset;
+                Vector3 targetPosition = pose.position + pose.rotation * offset;
+
+                bird.transform.position = Vector3.Lerp(
+                bird.transform.position,
+                targetPosition,
+                Time.deltaTime * 15f // 5~15 정도로 조절 가능
+    );
                 bird.transform.rotation = pose.rotation * Quaternion.Euler(180f, 180f, -90f); // 방향 고정
             }
             else
@@ -88,6 +95,7 @@ public class FingerEvent : MonoBehaviour
         }
 
     }
+
 
 
 
