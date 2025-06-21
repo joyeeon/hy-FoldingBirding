@@ -6,9 +6,23 @@ using System.Threading.Tasks;
 
 public class AnchorLoader : MonoBehaviour
 {
-    private OVRSpatialAnchor anchorPrefab;
+    public OVRSpatialAnchor anchorPrefab;
     private SpatialAnchorManager spatialAnchorManager;
 
+    private void Start()
+    {
+        if (spatialAnchorManager == null)
+            spatialAnchorManager = FindObjectOfType<SpatialAnchorManager>();
+
+        if (spatialAnchorManager != null)
+        {
+            anchorPrefab = spatialAnchorManager.anchorPrefab;
+            if (anchorPrefab == null)
+            {
+                Debug.LogError("[LOAD] anchorPrefab is still null in Start()");
+            }
+        }
+    }
     private void Awake()
     {
         spatialAnchorManager = GetComponent<SpatialAnchorManager>();
@@ -60,7 +74,7 @@ public class AnchorLoader : MonoBehaviour
             return;
         }
 
-        _ = LoadAnchorsFromGuids(uuids);
+        LoadAnchorsFromGuids(uuids);
     }
 
     private async Task LoadAnchorsFromGuids(List<Guid> uuids)
@@ -69,7 +83,7 @@ public class AnchorLoader : MonoBehaviour
 
         var loadOptions = new OVRSpatialAnchor.LoadOptions
         {
-            StorageLocation = OVRSpace.StorageLocation.Local,
+            StorageLocation = OVRSpace.StorageLocation.Cloud,
             Timeout = 0,
             Uuids = uuids
         };
@@ -102,26 +116,38 @@ public class AnchorLoader : MonoBehaviour
 
     private void OnLocalized(OVRSpatialAnchor.UnboundAnchor unboundAnchor, bool success)
     {
+        Debug.Log($"[LOAD] 이거 되긴 하냐? ");
         if (!success)
         {
             Debug.LogWarning($"[LOAD] Failed to localize anchor: {unboundAnchor.Uuid}");
             return;
         }
 
-        var pose = unboundAnchor.Pose;
-        var spatialAnchor = Instantiate(anchorPrefab, pose.position, pose.rotation);
-        unboundAnchor.BindTo(spatialAnchor);
-
-        if (spatialAnchor.TryGetComponent<OVRSpatialAnchor>(out var anchor))
+        if (anchorPrefab == null)
         {
-            var textComponents = spatialAnchor.GetComponentsInChildren<TextMeshProUGUI>();
-            if (textComponents.Length >= 2)
-            {
-                textComponents[0].text = "UUID: " + spatialAnchor.Uuid.ToString();
-                textComponents[1].text = "Loaded from Device";
-            }
+            Debug.LogError("[LOAD] anchorPrefab is null. Cannot instantiate anchor.");
+            return;
         }
 
-        Debug.Log($"[LOAD] Anchor successfully instantiated and bound: {spatialAnchor.Uuid}");
+        if (unboundAnchor.TryGetPose(out Pose pose))
+        {
+            var spatialAnchor = Instantiate(anchorPrefab, pose.position, pose.rotation);
+            unboundAnchor.BindTo(spatialAnchor);
+
+            var uuidText = spatialAnchor.transform.Find("Canvas/UUIDText")?.GetComponent<TextMeshProUGUI>();
+            var statusText = spatialAnchor.transform.Find("Canvas/StatusText")?.GetComponent<TextMeshProUGUI>();
+
+            if (uuidText != null && statusText != null)
+            {
+                uuidText.text = "UUID: " + spatialAnchor.Uuid.ToString();
+                statusText.text = "Loaded from Device";
+            }
+
+            Debug.Log($"[LOAD] Anchor successfully instantiated and bound: {spatialAnchor.Uuid}");
+        }
+        else
+        {
+            Debug.LogError($"[LOAD] Failed to get pose from unbound anchor: {unboundAnchor.Uuid}");
+        }
     }
 }

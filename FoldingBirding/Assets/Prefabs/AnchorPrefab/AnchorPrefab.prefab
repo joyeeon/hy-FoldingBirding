@@ -113,7 +113,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1704007415176418866}
   - component: {fileID: 3483099640807961288}
-  - component: {fileID: 7993357525698554998}
   m_Layer: 0
   m_Name: AnchorPrefab
   m_TagString: Untagged
@@ -149,19 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e0461a4939d3b4fbdf706bbd80108c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7993357525698554998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276034815649250580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334de6249dbf8483bbc3491d8e142ebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: ANchor
 --- !u!1 &4678220858570970155
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +160,7 @@ GameObject:
   - component: {fileID: 6402026921990591980}
   - component: {fileID: 5059042311895617823}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: UUIDText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +294,7 @@ GameObject:
   - component: {fileID: 7306896379311619944}
   - component: {fileID: 5521806695193368444}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StatusText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

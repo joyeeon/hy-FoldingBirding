@@ -37,6 +37,7 @@ public class SpatialAnchorManager : MonoBehaviour
         }
         if(OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
         {
+            Debug.Log($"[CLICKED] 리셋 클릭됨");
             UnsaveAllAnchors();
         }
         if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick, OVRInput.Controller.RTouch))
@@ -184,10 +185,14 @@ public class SpatialAnchorManager : MonoBehaviour
             PlayerPrefs.DeleteKey(NumUuidsPlayerPref);
             PlayerPrefs.Save();
         }
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Debug.Log("All saved anchors have been cleared from PlayerPrefs.");
     }
 
     public void LoadSavedAnchors()
     {
         anchorLoader.LoadAnchorsByUuid();
     }
+    
 }
