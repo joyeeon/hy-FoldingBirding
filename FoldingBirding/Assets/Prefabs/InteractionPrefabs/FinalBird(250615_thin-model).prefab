@@ -31,12 +31,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9172267
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palmTransform: {fileID: 0}
-  localOffset: {x: 0, y: -0.15, z: 0.08}
-  followSpeed: 2
+  localOffset: {x: 0, y: -0.35, z: 0.08}
+  followSpeed: 5
 --- !u!114 &8840515441532822440
 MonoBehaviour:
   m_ObjectHideFlags: 0
