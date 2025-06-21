@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static StateManager;
 
 public class TutorialManager : MonoBehaviour
 {
     [Header("Setting")]
+    [SerializeField] private GameObject tutorialgCanvas;
     [SerializeField] private TMP_Text DescriptionTxt;
 
     [Header("Debug")]
@@ -24,12 +26,39 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InitTutorial());
+    }
+
+    private IEnumerator InitTutorial()
+    {
+        yield return StartCoroutine(SetCanvas());
         StartTutorial();
     }
 
     public void StartTutorial()
     {
         StartInteraction(0);
+    }
+
+    private IEnumerator SetCanvas()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        Debug.Log(">>>>>>>>>>>>>>>> Start Setting Canvas");
+        Camera cam = Camera.main;
+        if (cam == null) yield break;
+
+        Debug.Log("(>>>>>>>>>>>>>>>> Found Main Camera");
+        Transform camTf = cam.transform;
+
+        Vector3 pos = camTf.position + camTf.forward * 0.1f;
+        pos.y = camTf.position.y;
+
+        Debug.Log("(>>>>>>>>>>>>>>>> Translate Tutorial Canvas");
+        tutorialgCanvas.transform.position = pos;
+
+        tutorialgCanvas.transform.LookAt(camTf);
+        tutorialgCanvas.transform.Rotate(0, 180f, 0f);
     }
 
     public void StartInteraction(int step)
@@ -64,6 +93,11 @@ public class TutorialManager : MonoBehaviour
         else
         {
             DescriptionTxt.text = "이제 여러분의 새를 만나보러 가볼까요!";
+
+            delay = 1f;
+            yield return new WaitForSeconds(delay);
+
+            SceneLoader.Instance.LoadScene(2);
         }
     }
 
@@ -73,4 +107,5 @@ public class TutorialManager : MonoBehaviour
     public void OnPetButtonClicked() => StartInteraction(3);
     public void OnFollowButtonClicked() => StartInteraction(4);
     public void OnByeButtonClicked() => StartInteraction(5);
+    public void OnTempButtonClicked() => StateManager.instance.SetInteractionState(InteractionState.Bye);
 }
