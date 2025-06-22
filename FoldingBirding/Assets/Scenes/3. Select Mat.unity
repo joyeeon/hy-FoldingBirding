@@ -3794,6 +3794,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 376691876}
+        m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -6444,6 +6456,18 @@ MonoBehaviour:
       - m_Target: {fileID: 327307677}
         m_TargetAssemblyTypeName: SelectMatManager, Assembly-CSharp
         m_MethodName: OnClickRightBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 376691876}
+        m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
+        m_MethodName: PlayAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23636,11 +23660,16 @@ PrefabInstance:
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
@@ -23655,7 +23684,17 @@ PrefabInstance:
       objectReference: {fileID: 376691876}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 376691876}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
@@ -23665,12 +23704,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: AudioToggleController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioToggleController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6109047941689782726, guid: f20161ebd41521b478d576294b4c1d93,
