@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   palmTransform: {fileID: 0}
   localOffset: {x: 0, y: -0.35, z: 0.08}
-  followSpeed: 5
+  followSpeed: 7
 --- !u!114 &8840515441532822440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb434755a94454b4ab688711124000a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdMoveSpeed: 2
+  birdMoveSpeed: 1.5
   moveDirection: {x: 0, y: 1, z: 1}
 --- !u!114 &7848206688438756976
 MonoBehaviour:
