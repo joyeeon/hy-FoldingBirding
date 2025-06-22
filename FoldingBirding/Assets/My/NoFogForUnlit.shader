@@ -17,42 +17,50 @@ Shader "Custom/NoFogForUnlit"
             Name "GradientSky"
             Tags { "LightMode" = "UniversalForward" }
 
-            HLSLPROGRAM
+            CGPROGRAM
+            
             #pragma vertex vert
             #pragma fragment frag
             #pragma target 4.5
 
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "UnityCG.cginc"
 
-            struct Attributes
+            struct appdata
             {
-                float4 positionOS : POSITION;
+                float4 position : POSITION;
+
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
-            struct Varyings
+            struct v2f
             {
-                float4 positionHCS : SV_POSITION;
-                float3 positionWS : TEXCOORD0;
+                float4 clipPosition : SV_POSITION;
+                float3 worldPosition : TEXCOORD0;
+
+                UNITY_VERTEX_OUTPUT_STEREO
             };
 
             float4 _TopColor;
             float4 _MidColor;
             float4 _BottomColor;
 
-            Varyings vert(Attributes input)
+            v2f vert(appdata v)
             {
-                Varyings output;
-                float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
-                output.positionHCS = TransformWorldToHClip(positionWS);
-                output.positionWS = positionWS;
-                return output;
+                v2f o;
+
+                UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_INITIALIZE_OUTPUT(v2f, o);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+
+                o.worldPosition = mul(unity_ObjectToWorld, v.position).xyz;
+                o.clipPosition = UnityObjectToClipPos(v.position.xyz);
+                return o;
             }
 
-            half4 frag(Varyings input) : SV_Target
+            half4 frag(v2f i) : SV_Target
             {
-                float height = saturate((input.positionWS.y + 10.0) / 20.0); // y = -10 ~ +10 → 0 ~ 1
+                float height = saturate((i.worldPosition.y + 10.0) / 20.0);
 
-                // 2단계 그라데이션 (하단↔중간↔상단)
                 float t1 = saturate(height * 2.0);
                 float t2 = saturate((height - 0.5) * 2.0);
                 float3 color = lerp(_BottomColor.rgb, _MidColor.rgb, t1);
@@ -60,7 +68,7 @@ Shader "Custom/NoFogForUnlit"
 
                 return float4(color, 1);
             }
-            ENDHLSL
+            ENDCG
         }
     }
 
