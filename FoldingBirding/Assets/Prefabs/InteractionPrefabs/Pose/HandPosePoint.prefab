@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 7528941114614813866}
   - component: {fileID: 7211125274835690137}
   - component: {fileID: 4357650991232379164}
-  - component: {fileID: 4999137227893957154}
   m_Layer: 0
   m_Name: HandPosePoint
   m_TagString: Untagged
@@ -206,18 +205,3 @@ MonoBehaviour:
   localOffset: {x: 0, y: 0.0001, z: 0}
   isSelected: 0
   isBirdAttached: 0
---- !u!114 &4999137227893957154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145250314594529375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6156db339a31bf41878ad6f84bb00d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  palmTransform: {fileID: 0}
-  localOffset: {x: 0, y: -0.1, z: 3}
-  followSpeed: 10

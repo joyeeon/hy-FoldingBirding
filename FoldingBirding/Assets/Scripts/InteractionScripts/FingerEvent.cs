@@ -72,7 +72,7 @@ public class FingerEvent : MonoBehaviour
             if (isBirdAttached)
             {
                 // 손가락 위에 붙이기
-                Vector3 offset = new Vector3(-0.42f, -0.07f, 0.2f);
+                Vector3 offset = new Vector3(-0.4f, -0.07f, 0.12f);
                 //Vector3 finalPosition = pose.position + pose.rotation * offset;
                 Vector3 targetPosition = pose.position + pose.rotation * offset;
 
