@@ -47,7 +47,7 @@ public class BirdFollower : MonoBehaviour
             //                         hmdTransform.forward * followDistance +
             //                         Vector3.up * followHeightOffset;
 
-            Vector3 localOffset = new Vector3(0.5f, -0.3f, 0.7f);  // 오른쪽 + 위
+            Vector3 localOffset = new Vector3(0.1f, -0.1f, 0.7f);  // 오른쪽 + 위
             Vector3 targetPosition = hmdTransform.TransformPoint(localOffset);
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
