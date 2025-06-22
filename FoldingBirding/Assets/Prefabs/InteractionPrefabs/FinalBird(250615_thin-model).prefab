@@ -88,37 +88,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.064912826
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.124
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.562187
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.31952134
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.9475791
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
@@ -128,7 +128,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -217.268
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: abfe0164978235141afcd7d359a13549,
         type: 3}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palmTransform: {fileID: 0}
-  localOffset: {x: 0, y: -0.35, z: 0.08}
+  localOffset: {x: 0.05, y: -0.38, z: 0.07}
   followSpeed: 7
 --- !u!114 &8840515441532822440
 MonoBehaviour:
