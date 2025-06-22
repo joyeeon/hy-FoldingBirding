@@ -1,23 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class StateManager : MonoBehaviour
 {
     public enum BirdState
     {
-        Idle,
-        Follow,
         Sit,
-        Pet
+        Translate,
+        Follow,
+        Land,
+        TakeOff,
+        Dance,
+        Hop
+    }
+    public enum InteractionState
+    {
+        Call,
+        Finger,
+        Palm,
+        Pet,
+        Follow,
+        Bye
     }
     public static StateManager instance;
 
     public BirdState birdState;
-    [SerializeField] TMP_Text debugTxt;
+    public InteractionState interactionState;
+
+    [SerializeField] private VisualEffect musicVFX;
+    [SerializeField] private VisualEffect heartVFX;
 
     private Animator animator;
+    private float hopTime = 0f;
 
     private void Awake()
     {
@@ -26,36 +44,138 @@ public class StateManager : MonoBehaviour
             instance = this;
         }
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-        birdState = BirdState.Idle;   
+        animator = GetComponent<Animator>();
+        SetInteractionState(InteractionState.Follow);
+
+        // For Confirm
+        PlayMusicVFX();
+        PlayHeartVFX();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        debugTxt.text = birdState.ToString();    
+        TriggerHop();
     }
 
-/*    public void ChangeState(BirdState newState)
+    private void PlayMusicVFX()
     {
-        if (birdState == newState) return;
+        musicVFX.SendEvent("MusicVFX");
+    }
 
-        if (birdState == BirdState.Fly && newState == BirdState.Sit)
-        {
-            animator.SetTrigger("FlyToSit");
-        }
-        else if (birdState == BirdState.Sit && newState == BirdState.Fly)
-        {
-            animator.SetTrigger("TakeOff");
-        }
-        else if (newState == BirdState.Pet)
-        {
-            animator.SetTrigger("PetReaction");
-        }
+    private void PlayHeartVFX()
+    {
+        heartVFX.SendEvent("HeartVFX");
+    }
 
-        Debug.Log($"State: {birdState} ¡æ {newState}");
-        birdState = newState;
-    }*/
+    public void SetInteractionState(InteractionState iState)
+    {
+        switch (iState)
+        {
+            case InteractionState.Call:
+                interactionState = InteractionState.Call;
+                SetBirdState(BirdState.Translate);
+                break;
+            case InteractionState.Bye:
+                interactionState = InteractionState.Bye;
+                SetBirdState(BirdState.Translate);
+                break;
+            case InteractionState.Palm:
+                interactionState = InteractionState.Palm;
+                if (birdState != BirdState.Sit)
+                {
+                    SetBirdState(BirdState.Land);
+                }
+                break;
+            case InteractionState.Finger:
+                interactionState = InteractionState.Finger;
+                if (birdState != BirdState.Sit)
+                {
+                    SetBirdState(BirdState.Land);
+                }
+                break;
+            case InteractionState.Follow:
+                interactionState = InteractionState.Follow;
+                SetBirdState(BirdState.Follow);
+                break;
+            case InteractionState.Pet:
+                interactionState = InteractionState.Pet;
+                SetBirdState(BirdState.Dance);
+                break;
+        }
+    }
+
+    private void SetBirdState(BirdState bState)
+    {
+        switch (bState)
+        {
+            case BirdState.Sit:
+                birdState = BirdState.Sit;
+                break;
+            case BirdState.Translate:
+                if(birdState == BirdState.Sit)
+                {
+                    animator.SetTrigger("isTakeOff");
+                }
+                birdState = BirdState.Translate;
+                animator.SetBool("isTranslate", true);
+                animator.SetBool("isFollow", false);
+                break;
+            case BirdState.Follow:
+                if (birdState == BirdState.Sit)
+                {
+                    animator.SetTrigger("isTakeOff");
+                }
+                birdState = BirdState.Follow;
+                animator.SetBool("isTranslate", false);
+                animator.SetBool("isFollow", true);
+                break;
+            case BirdState.Land:
+                //birdState = BirdState.Land;
+                animator.SetTrigger("isLand");
+                birdState = BirdState.Sit;
+                break;
+            case BirdState.TakeOff:
+                //birdState = BirdState.TakeOff;
+                animator.SetTrigger("isTakeOff");
+                break;
+            case BirdState.Hop:
+                //birdState = BirdState.Hop;
+                animator.SetTrigger("isHop");
+                birdState = BirdState.Sit;
+                break;
+            case BirdState.Dance:
+                //birdState = BirdState.Dance;
+                animator.SetTrigger("isDance");
+                birdState = BirdState.Sit;
+                break;
+        }
+    }
+
+    private void TriggerHop()
+    {
+        if (birdState == BirdState.Sit)
+        {
+            if (Time.time > hopTime)
+            {
+                hopTime = Time.time + 2f;
+                if (Random.value < 0.4f)
+                {
+                    Debug.Log("Bird Hops");
+                    animator.SetTrigger("isHop");
+                }
+            }
+        }
+    }
+
+    //For Debugging
+    public void OnCallButtonClicked() => SetInteractionState(InteractionState.Call);
+    public void OnFingerButtonClicked() => SetInteractionState(InteractionState.Finger);
+    public void OnPalmButtonClicked() => SetInteractionState(InteractionState.Palm);
+    public void OnPetButtonClicked() => SetInteractionState(InteractionState.Pet);
+    public void OnFollowButtonClicked() => SetInteractionState(InteractionState.Follow);
+    public void OnByeButtonClicked() => SetInteractionState(InteractionState.Bye);
+
 }

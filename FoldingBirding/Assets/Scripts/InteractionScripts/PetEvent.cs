@@ -20,7 +20,6 @@ public class PetEvent : MonoBehaviour
     {
         if (other.CompareTag("MyBird"))
         {
-            StateManager.instance.birdState = StateManager.BirdState.Pet;
             Debug.Log($"{other.name} Pet My Bird");
         }
     }
@@ -29,7 +28,6 @@ public class PetEvent : MonoBehaviour
     {
         if (other.CompareTag("MyBird"))
         {
-            StateManager.instance.birdState = StateManager.BirdState.Sit;
             Debug.Log($"{other.name} Stop Petting My Bird");
         }
     }

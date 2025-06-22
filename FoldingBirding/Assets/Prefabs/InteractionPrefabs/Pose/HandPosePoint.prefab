@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7528941114614813866}
   - component: {fileID: 7211125274835690137}
   - component: {fileID: 4357650991232379164}
+  - component: {fileID: 4999137227893957154}
   m_Layer: 0
   m_Name: HandPosePoint
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MonoBehaviour:
   _transformFeatureConfigs:
     _values:
     - _mode: 0
-      _feature: 6
-      _state: 18
+      _feature: 0
+      _state: 0
   _transformConfig:
     PositionOffset: {x: 0, y: 0, z: 0}
     RotationOffset: {x: 0, y: 0, z: 0}
@@ -149,6 +150,18 @@ MonoBehaviour:
           m_StringArgument: finger open
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FollowPalmObject, Assembly-CSharp
+        m_MethodName: OnPalmGestureDetected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenUnselected:
     m_PersistentCalls:
       m_Calls:
@@ -164,6 +177,18 @@ MonoBehaviour:
           m_StringArgument: finger close
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FollowPalmObject, Assembly-CSharp
+        m_MethodName: OnPalmGestureEnded
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4357650991232379164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +201,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065364cf1cf8146479d51992bf86bfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4999137227893957154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145250314594529375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6156db339a31bf41878ad6f84bb00d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  palmTransform: {fileID: 0}
+  localOffset: {x: 0, y: -0.1, z: 3}
+  followSpeed: 10
