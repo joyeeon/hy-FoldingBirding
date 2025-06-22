@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
+
 
 public class SpatialAnchorManager : MonoBehaviour
 {
@@ -136,16 +138,25 @@ public class SpatialAnchorManager : MonoBehaviour
 }
 
 
-    private void UnsavedLastCreatedAnchor()
+    private async void UnsavedLastCreatedAnchor()
     {
-        lastCreatedAnchor.Erase((lastCreatedAnchor, success) => 
+        if (lastCreatedAnchor == null)
         {
-            if (success)
-            {
-                savedStatusText.text = "Not Saved";
-            }
-        });
+            Debug.LogWarning("[UNSAVE] No lastCreatedAnchor to erase.");
+            return;
+        }
+
+        bool success = await lastCreatedAnchor.EraseAsync();
+        if (success)
+        {
+            savedStatusText.text = "Not Saved";
+            Debug.Log($"[UNSAVE] Last created anchor erased: {lastCreatedAnchor.Uuid}");
+
+            RemoveUuidFromPlayerPrefs(lastCreatedAnchor.Uuid);
+            anchors.Remove(lastCreatedAnchor);
+        }
     }
+
 
     private void UnsaveAllAnchors()
     {
@@ -157,21 +168,58 @@ public class SpatialAnchorManager : MonoBehaviour
         ClearAllUuidsFromPlayerPrefs();
     }
 
-    private void UnsaveAnchor(OVRSpatialAnchor anchor)
+    private async Task UnsaveAnchor(OVRSpatialAnchor anchor)
     {
-        anchor.Erase((erasedAnchor, success) => 
+        bool success = await anchor.EraseAsync();
+
+        if (success)
         {
-            if(success)
+            var textComponents = anchor.GetComponentsInChildren<TextMeshProUGUI>();
+            if (textComponents.Length > 1)
             {
-                var textComponents = erasedAnchor.GetComponentsInChildren<TextMeshProUGUI>();
-                if(textComponents.Length > 1)
-                {
-                    var savedStatusText = textComponents[1];
-                    savedStatusText.text = "Not Saved";
-                }
+                var savedStatusText = textComponents[1];
+                savedStatusText.text = "Not Saved";
             }
-        });
+
+            RemoveUuidFromPlayerPrefs(anchor.Uuid);
+            Debug.Log($"[UNSAVE] Anchor {anchor.Uuid} erased.");
+        }
+        else
+        {
+            Debug.LogWarning($"[UNSAVE] Failed to erase anchor {anchor.Uuid}");
+        }
     }
+
+    private void RemoveUuidFromPlayerPrefs(Guid uuidToRemove)
+    {
+        if (!PlayerPrefs.HasKey(NumUuidsPlayerPref)) return;
+
+        int count = PlayerPrefs.GetInt(NumUuidsPlayerPref);
+        List<string> newUuids = new();
+
+        for (int i = 0; i < count; i++)
+        {
+            string key = "uuid" + i;
+            string storedUuid = PlayerPrefs.GetString(key);
+
+            if (storedUuid != uuidToRemove.ToString())
+            {
+                newUuids.Add(storedUuid);
+            }
+        }
+
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt(NumUuidsPlayerPref, newUuids.Count);
+
+        for (int i = 0; i < newUuids.Count; i++)
+        {
+            PlayerPrefs.SetString("uuid" + i, newUuids[i]);
+        }
+
+        PlayerPrefs.Save();
+    }
+
+
 
     private void ClearAllUuidsFromPlayerPrefs()
     {

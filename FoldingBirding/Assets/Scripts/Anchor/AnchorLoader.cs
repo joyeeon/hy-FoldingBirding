@@ -22,6 +22,8 @@ public class AnchorLoader : MonoBehaviour
                 Debug.LogError("[LOAD] anchorPrefab is still null in Start()");
             }
         }
+        LoadAnchorsByUuid();
+        
     }
     private void Awake()
     {
@@ -74,7 +76,7 @@ public class AnchorLoader : MonoBehaviour
             return;
         }
 
-        LoadAnchorsFromGuids(uuids);
+        _ = LoadAnchorsFromGuids(uuids);
     }
 
     private async Task LoadAnchorsFromGuids(List<Guid> uuids)
