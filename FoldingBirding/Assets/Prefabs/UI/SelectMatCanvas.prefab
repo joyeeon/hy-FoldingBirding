@@ -1901,14 +1901,14 @@ Transform:
   m_GameObject: {fileID: 4756805544119443264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 1.145, z: 0.4767}
+  m_LocalPosition: {x: 0.11, y: 0.14499998, z: 0.0767}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3307582087612124000}
   - {fileID: 5580163883518048772}
   - {fileID: 3363414300275455667}
-  m_Father: {fileID: 539128674422989742}
+  m_Father: {fileID: 2414432878226828815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4907612315058332602
 MonoBehaviour:
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 52f34134-03cf-40b3-84fd-ad4f9e5372b7
+  instanceId: a8b71e09-1f71-495e-8d11-0791cd2d4f47
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -3449,6 +3449,7 @@ Transform:
   - {fileID: 8231938721851570140}
   - {fileID: 736603939948639131}
   - {fileID: 3072268796807491172}
+  - {fileID: 8926712759908687182}
   m_Father: {fileID: 539128674422989742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7731203600937863379
@@ -3809,7 +3810,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2463903244402123755}
-  - {fileID: 8926712759908687182}
   - {fileID: 2414432878226828815}
   - {fileID: 7666668619251504552}
   - {fileID: 6679088342963035948}
@@ -4174,6 +4174,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7197662114283454050, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197662114283454050, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 40de5fb12ad478140b3414a11478b945, type: 2}
@@ -4369,6 +4374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3887185075125053422, guid: 5932d3e7e1ed8fe46ab5f66e905e029b,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 5932d3e7e1ed8fe46ab5f66e905e029b,
+        type: 3}
       propertyPath: m_AABB.m_Center.x
       value: -0.00051665306
       objectReference: {fileID: 0}
@@ -4494,6 +4504,11 @@ PrefabInstance:
     - target: {fileID: -3887185075125053422, guid: ca7ad92eec9b8634fa6036bcb66b1bcc,
         type: 3}
       propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: ca7ad92eec9b8634fa6036bcb66b1bcc,
+        type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3887185075125053422, guid: ca7ad92eec9b8634fa6036bcb66b1bcc,

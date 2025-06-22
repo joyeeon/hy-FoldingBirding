@@ -5,6 +5,8 @@ using UnityEngine;
 public class SelectMatManager : MonoBehaviour
 {
     [SerializeField] private GameObject selectMatCanvas;
+    [SerializeField] private GameObject confirmPanel;
+    [SerializeField] private GameObject texturePanel;
     private void Start()
     {
         StartCoroutine(SetCanvas());
@@ -29,9 +31,19 @@ public class SelectMatManager : MonoBehaviour
 
     public void OnClickSelectBtn()
     {
+        texturePanel.SetActive(false);
+        confirmPanel.SetActive(true);
+    }
+
+    public void OnClickRightBtn()
+    {
         SceneLoader.Instance.LoadScene(3);
         selectMatCanvas.SetActive(false);
+    }
 
-
+    public void OnClickWrongBtn()
+    {
+        texturePanel.SetActive(true);
+        confirmPanel.SetActive(false);
     }
 }
