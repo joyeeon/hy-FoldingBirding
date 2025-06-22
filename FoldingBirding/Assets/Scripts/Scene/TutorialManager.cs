@@ -13,6 +13,9 @@ public class TutorialManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool isWaitingInteraction = false;
 
+    [Header("Step별 표시할 손 오브젝트")]
+    [SerializeField] private List<GameObject> objectsToToggle;
+
 
     private List<(StateManager.InteractionState state, string desc, string result)> dialogueSteps = new()
     {
@@ -72,6 +75,10 @@ public class TutorialManager : MonoBehaviour
         isWaitingInteraction = true;
         DescriptionTxt.text = dialogueSteps[step].desc;
 
+        // Step별 오브젝트 제어
+        SetObjectsForStep(step);
+
+        // 제스처 인식 대기
         while (isWaitingInteraction)
         {
             yield return null;
@@ -83,23 +90,33 @@ public class TutorialManager : MonoBehaviour
 
         DescriptionTxt.text = dialogueSteps[step].result;
 
-        var delay = 3f;
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(3f);
 
-        if(step < 5)
+        if (step < dialogueSteps.Count - 1)
         {
             StartInteraction(step + 1);
         }
         else
         {
             DescriptionTxt.text = "이제 여러분의 새를 만나보러 가볼까요!";
-
-            delay = 1f;
-            yield return new WaitForSeconds(delay);
-
+            yield return new WaitForSeconds(1f);
             SceneLoader.Instance.LoadScene(2);
         }
     }
+
+
+    private void SetObjectsForStep(int step)
+    {
+        for (int i = 0; i < objectsToToggle.Count; i++)
+        {
+            if (objectsToToggle[i] != null)
+            {
+                objectsToToggle[i].SetActive(i == step);  // 해당 step만 true
+            }
+        }
+    }
+
+
 
     public void OnCallButtonClicked() => StartInteraction(0);
     public void OnFingerButtonClicked() => StartInteraction(1);
