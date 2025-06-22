@@ -10,7 +10,7 @@ using UnityEngine;
 public class FollowPalmObject : MonoBehaviour
 {
     public Transform palmTransform;
-    public Vector3 localOffset = new Vector3(-1.5f, 3f, 0);
+    public Vector3 localOffset = new Vector3(-1.5f, 3f, 1.8f);
     public float followSpeed = 10f;
 
     private bool isPalmGestureActive = false;
@@ -42,9 +42,11 @@ public class FollowPalmObject : MonoBehaviour
             Vector3 targetPosition = palmTransform.TransformPoint(localOffset);
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
 
-            
-            transform.rotation = Quaternion.Slerp(transform.rotation, fixedRotation, Time.deltaTime * 10f);
-            isReturningRotation = false;
+
+            //transform.rotation = fixedRotation;
+            Quaternion palmRotation = palmTransform.rotation;
+            Quaternion additionalOffset = Quaternion.Euler(180f, -90f,0); // 손 위에 앉는 자연스러운 회전값
+            transform.rotation = Quaternion.Slerp(transform.rotation, palmRotation * additionalOffset, Time.deltaTime * 20f);
         }
         else if (isReturningRotation)
         {
@@ -73,7 +75,6 @@ public class FollowPalmObject : MonoBehaviour
     {
         isPalmGestureActive = false;
         birdFollower?.SetExternalControl(false);
-        //GetComponent<BirdFollower>()?.SetFollowing(true);
         StateManager.instance.SetInteractionState(StateManager.InteractionState.Follow);
     }
 
