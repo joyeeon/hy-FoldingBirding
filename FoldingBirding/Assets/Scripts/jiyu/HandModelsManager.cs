@@ -1,24 +1,20 @@
 using UnityEngine;
+using System.Collections;
 
 public class HandModelsManager : MonoBehaviour
 {
-    [Tooltip("이 버튼이 선택되었을 때 보여줄 Motion UI 오브젝트")]
     public GameObject motionUI;
-
-    [Tooltip("다른 MotionDisplayer들이 보여준 UI를 숨기려면 true")]
     public bool hideOthersOnShow = true;
 
     private static HandModelsManager[] allDisplayers;
 
     private void Awake()
     {
-        // 처음 한 번만 전체 목록 확보
         if (allDisplayers == null)
         {
-            allDisplayers = FindObjectsOfType<HandModelsManager>();
+            allDisplayers = FindObjectsOfType<HandModelsManager>(true);
         }
 
-        // 시작 시에는 꺼두기 (원하면 제거 가능)
         if (motionUI != null)
         {
             motionUI.SetActive(false);
@@ -36,16 +32,25 @@ public class HandModelsManager : MonoBehaviour
                     displayer.motionUI.SetActive(false);
                 }
             }
-            Debug.Log($"[MotionDisplayer] ShowMotion() 실행됨. motionUI: {motionUI?.name}");
-
-            if (motionUI != null)
-                motionUI.SetActive(true);
         }
 
         if (motionUI != null)
         {
-            motionUI.SetActive(true);
+            // 기존 방식: 바로 켜기
+            // motionUI.SetActive(true);
+
+            // 변경: 깜빡임 효과 실행
+            StartCoroutine(BlinkMotion());
         }
+    }
+
+    private IEnumerator BlinkMotion()
+    {
+        motionUI.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        motionUI.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        motionUI.SetActive(true);
     }
 
     public void HideMotion()
