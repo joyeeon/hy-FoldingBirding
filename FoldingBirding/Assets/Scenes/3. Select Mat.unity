@@ -3794,6 +3794,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 376691876}
+        m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -4511,12 +4523,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b43af95e90777d49b9b4d27171307eb, type: 3}
---- !u!1 &376691876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8970223448705942647, guid: 6b43af95e90777d49b9b4d27171307eb,
+--- !u!114 &376691876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5700866009804354054, guid: 6b43af95e90777d49b9b4d27171307eb,
     type: 3}
   m_PrefabInstance: {fileID: 376691875}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3940b7ef26a6099499cd7203e71071a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377887418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6438,6 +6456,18 @@ MonoBehaviour:
       - m_Target: {fileID: 327307677}
         m_TargetAssemblyTypeName: SelectMatManager, Assembly-CSharp
         m_MethodName: OnClickRightBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 376691876}
+        m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
+        m_MethodName: PlayAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23584,17 +23614,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2263511049491399850, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263511049491399850, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SelectMatManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2263511049491399850, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SelectMatManager, Assembly-CSharp
+      value: AudioToggleController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2263511049491399850, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263511049491399850, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2414432878226828815, guid: f20161ebd41521b478d576294b4c1d93,
@@ -23619,9 +23659,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1065623910}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 376691876}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 376691876}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioToggleController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioToggleController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432497020052431467, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6109047941689782726, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: m_text
@@ -23630,9 +23735,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1065623910}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 376691876}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioToggleController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567293080473732369, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6679088342963035948, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -23700,9 +23840,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1065623910}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 376691876}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioToggleController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533404729770356373, guid: f20161ebd41521b478d576294b4c1d93,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7666668619251504552, guid: f20161ebd41521b478d576294b4c1d93,
         type: 3}
       propertyPath: m_LocalPosition.y

@@ -1340,6 +1340,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5190686325339789515, guid: 335af610566412b42b2ab494ebdaaca8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271673831515236242, guid: 335af610566412b42b2ab494ebdaaca8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2742,7 +2747,7 @@ Transform:
   m_GameObject: {fileID: 267419891}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.202, y: 0.407, z: 1.824}
+  m_LocalPosition: {x: 0.025, y: 0.247, z: 2.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2751,6 +2756,7 @@ Transform:
   - {fileID: 855998658}
   - {fileID: 919074980}
   - {fileID: 426013506}
+  - {fileID: 416927489}
   m_Father: {fileID: 1264675410499485499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271696345
@@ -4429,6 +4435,37 @@ Transform:
   - {fileID: 1155539798}
   - {fileID: 295708650}
   m_Father: {fileID: 1895002637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &416927488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 416927489}
+  m_Layer: 0
+  m_Name: Follow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &416927489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416927488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 267419892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &426013505
 PrefabInstance:
@@ -9573,7 +9610,7 @@ PrefabInstance:
     - target: {fileID: 7253974303137325979, guid: 6e8352bf5ffe91440bca7f7e167a4b52,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3106
+      value: -0.4785
       objectReference: {fileID: 0}
     - target: {fileID: 7253974303137325979, guid: 6e8352bf5ffe91440bca7f7e167a4b52,
         type: 3}
@@ -10329,7 +10366,7 @@ PrefabInstance:
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.08965647
+      value: 0.15136515
       objectReference: {fileID: 0}
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
@@ -10339,12 +10376,12 @@ PrefabInstance:
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5759561
+      value: -1.5948737
       objectReference: {fileID: 0}
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9407247
       objectReference: {fileID: 0}
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
@@ -10354,7 +10391,7 @@ PrefabInstance:
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.33917117
       objectReference: {fileID: 0}
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
@@ -10369,7 +10406,7 @@ PrefabInstance:
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -39.653
       objectReference: {fileID: 0}
     - target: {fileID: 3435092272492395773, guid: 151f3f6530d34e744bcd549b65fa701e,
         type: 3}
@@ -13358,7 +13395,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialgCanvas: {fileID: 7334643119135018753}
   DescriptionTxt: {fileID: 2987340713841416119}
-  isWaitingInteraction: 0
+  isWaitingInteraction: 1
+  objectsToToggle:
+  - {fileID: 1040437514}
+  - {fileID: 875868546}
+  - {fileID: 1314736678}
+  - {fileID: 408915702}
+  - {fileID: 416927488}
+  - {fileID: 42250758}
 --- !u!4 &1169348105
 Transform:
   m_ObjectHideFlags: 0
@@ -13367,7 +13411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169348103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.035341136, y: 0.57436097, z: 1.5245849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25548,8 +25592,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MotionDisplayer, Assembly-CSharp
+      - m_Target: {fileID: 8139528967652130300}
+        m_TargetAssemblyTypeName: HandModelsManager, Assembly-CSharp
         m_MethodName: ShowMotion
         m_Mode: 1
         m_Arguments:
@@ -25723,6 +25767,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1461630737}
         m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5517690572713801292}
+        m_TargetAssemblyTypeName: HandModelsManager, Assembly-CSharp
+        m_MethodName: HideMotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26176,6 +26232,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1461630737}
         m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8855117612588907716}
+        m_TargetAssemblyTypeName: HandModelsManager, Assembly-CSharp
+        m_MethodName: ShowMotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28136,6 +28204,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6038962627329246534}
+        m_TargetAssemblyTypeName: HandModelsManager, Assembly-CSharp
+        m_MethodName: ShowMotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -29443,6 +29523,7 @@ GameObject:
   - component: {fileID: 3036429652881788984}
   - component: {fileID: 5517690572713801291}
   - component: {fileID: 5076582335128661061}
+  - component: {fileID: 5517690572713801292}
   - component: {fileID: 820889861426197932}
   m_Layer: 0
   m_Name: FollowBtn
@@ -29469,6 +29550,20 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 
     _installationVariants: []
+--- !u!114 &5517690572713801292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503770020535952911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2de56ee6c12cb41a8da7433cf617c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motionUI: {fileID: 0}
+  hideOthersOnShow: 1
 --- !u!1 &5539990104556216199
 GameObject:
   m_ObjectHideFlags: 0
@@ -30189,6 +30284,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1461630737}
         m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6488376135847735565}
+        m_TargetAssemblyTypeName: HandModelsManager, Assembly-CSharp
+        m_MethodName: ShowMotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30965,6 +31072,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1461630737}
         m_TargetAssemblyTypeName: AudioToggleController, Assembly-CSharp
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7744365139475098408}
+        m_TargetAssemblyTypeName: HandModelsManager, Assembly-CSharp
+        m_MethodName: ShowMotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
