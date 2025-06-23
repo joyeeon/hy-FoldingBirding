@@ -19,7 +19,7 @@ public class TutorialManager : MonoBehaviour
 
     private List<(StateManager.InteractionState state, string desc, string result)> dialogueSteps = new()
     {
-        (StateManager.InteractionState.Call,   "손을 뻗어 새를 불러 보세요!", "당신의 부름에 새가 반응했어요!"),
+        (StateManager.InteractionState.Call,   "손을 위로 뻗어 새를 불러 보세요!", "당신의 부름에 새가 반응했어요!"),
         (StateManager.InteractionState.Finger, "손가락 하나만 쭉! 새가 앉을 자리를 만들어주세요!", "새가 당신의 손가락 위에 앉았어요!"),
         (StateManager.InteractionState.Palm,   "손바닥을 펼쳐보세요.", "당신의 손이 새에게는 가장 편안한 자리예요."),
         (StateManager.InteractionState.Pet,    "새의 머리를 조심스레 쓰다듬어보세요.", "새가 기뻐하고 있어요! 당신과 새 사이에 신뢰가 생겼어요."),
