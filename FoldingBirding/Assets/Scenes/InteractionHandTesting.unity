@@ -720,6 +720,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2450198410126303994, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
+        type: 3}
+      propertyPath: birdMoveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7194303222293801018, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: palmTransform
@@ -12190,6 +12195,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3021539714103761322, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _transformFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1859199087}
+    - target: {fileID: 3999852934528074652, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: _transformFeatureStateProvider
       value: 
