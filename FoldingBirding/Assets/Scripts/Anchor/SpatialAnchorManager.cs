@@ -51,9 +51,17 @@ public class SpatialAnchorManager : MonoBehaviour
 
     public void CreateSpatialAnchor()
     {
-        OVRSpatialAnchor workingAnchor = Instantiate(anchorPrefab, OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch),  OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch));
+        Vector3 controllerPos = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+        Vector3 anchorPosition = new Vector3(controllerPos.x, +0.22f, controllerPos.z);
 
-        Debug.Log($"[CLICKED] workingAnchor");
+        // 컨트롤러 회전에서 y축만 추출
+        Quaternion controllerRot = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+        float yRotation = controllerRot.eulerAngles.y;
+        Quaternion anchorRotation = Quaternion.Euler(0f, yRotation, 0f);
+
+        // 앵커 생성
+        OVRSpatialAnchor workingAnchor = Instantiate(anchorPrefab, anchorPosition, anchorRotation);
+        Debug.Log($"[CLICKED] workingAnchor{anchorPosition}");
 
         canvas = workingAnchor.gameObject.GetComponentInChildren<Canvas>();
         uuidText = canvas.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -100,7 +108,6 @@ public class SpatialAnchorManager : MonoBehaviour
 
     int playerNumUuids = PlayerPrefs.GetInt(NumUuidsPlayerPref);
 
-    // ✅ 중복 UUID 검사 먼저 수행
     for (int i = 0; i < playerNumUuids; i++)
     {
         string existingUuid = PlayerPrefs.GetString("uuid" + i);
@@ -111,14 +118,12 @@ public class SpatialAnchorManager : MonoBehaviour
         }
     }
 
-    // ✅ 중복이 아니라면 저장
     PlayerPrefs.SetString("uuid" + playerNumUuids, uuid.ToString());
     PlayerPrefs.SetInt(NumUuidsPlayerPref, ++playerNumUuids);
     PlayerPrefs.Save();
 
     Debug.Log("[UUID] Saved new Anchor UUID: " + uuid);
 
-    // 디버그 출력 (검사용)
     int count = PlayerPrefs.GetInt(NumUuidsPlayerPref, 0);
     Debug.Log("[UUID] Total Saved Count: " + count);
     for (int i = 0; i < count; i++)
