@@ -9563,6 +9563,11 @@ PrefabInstance:
       propertyPath: _transformFeatureStateProvider
       value: 
       objectReference: {fileID: 1645647098}
+    - target: {fileID: 3999852934528074652, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _transformFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1645647098}
     - target: {fileID: 6557242362660632140, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: m_Name
@@ -18010,17 +18015,17 @@ PrefabInstance:
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.63
       objectReference: {fileID: 0}
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.61
       objectReference: {fileID: 0}
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.71
       objectReference: {fileID: 0}
     - target: {fileID: 8219979671458184909, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
