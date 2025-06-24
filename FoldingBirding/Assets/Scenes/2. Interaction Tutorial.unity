@@ -20917,6 +20917,11 @@ PrefabInstance:
       propertyPath: _transformFeatureStateProvider
       value: 
       objectReference: {fileID: 1710997343}
+    - target: {fileID: 3999852934528074652, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _transformFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1710997343}
     - target: {fileID: 6557242362660632140, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: m_Name

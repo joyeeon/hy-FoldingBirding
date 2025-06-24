@@ -720,11 +720,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2450198410126303994, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
-        type: 3}
-      propertyPath: birdMoveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7194303222293801018, guid: 9b1c4f4a22f388142a63a1694a8c67b1,
         type: 3}
       propertyPath: palmTransform
@@ -12297,11 +12292,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: WingTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 970850927367983406, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4183094779888053175, guid: 178dd71412d0cf54395f59bcb711a954,
         type: 3}
       propertyPath: birdTransform
       value: 
       objectReference: {fileID: 1475031650}
+    - target: {fileID: 6347998763973108987, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433475948760791204, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_StartSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433475948760791204, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_AllowInstancing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433475948760791204, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_ResetSeedOnPlay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7351377421577680235, guid: 178dd71412d0cf54395f59bcb711a954,
         type: 3}
       propertyPath: m_LocalPosition.x
