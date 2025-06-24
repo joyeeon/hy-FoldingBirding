@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8611650522953172972}
   - component: {fileID: 7051043024366366523}
   - component: {fileID: 3021539714103761322}
+  - component: {fileID: 3999852934528074652}
+  - component: {fileID: 736495644814863020}
   - component: {fileID: 5060006584093199718}
   - component: {fileID: 208186689483839439}
   - component: {fileID: 7608711170383125078}
@@ -92,6 +94,47 @@ MonoBehaviour:
     UpVectorType: 0
     FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09,
       type: 2}
+--- !u!114 &3999852934528074652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557242362660632140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 8611650522953172972}
+  _transformFeatureStateProvider: {fileID: 0}
+  _transformFeatureConfigs:
+    _values:
+    - _mode: 0
+      _feature: 0
+      _state: 0
+  _transformConfig:
+    PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 0}
+    UpVectorType: 0
+    FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09,
+      type: 2}
+--- !u!114 &736495644814863020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557242362660632140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebd5da9a8bd22243b407f1927f4965b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeStates:
+  - {fileID: 3021539714103761322}
+  - {fileID: 3999852934528074652}
+  _logicOperator: 1
 --- !u!114 &5060006584093199718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activeStates:
   - {fileID: 7051043024366366523}
-  - {fileID: 3021539714103761322}
+  - {fileID: 736495644814863020}
   _logicOperator: 0
 --- !u!114 &208186689483839439
 MonoBehaviour:
