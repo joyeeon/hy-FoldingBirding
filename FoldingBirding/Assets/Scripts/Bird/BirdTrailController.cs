@@ -19,8 +19,8 @@ public class NewBehaviourScript : MonoBehaviour
             StateManager.instance != null &&
             (
                 //StateManager.instance.birdState == StateManager.BirdState.Follow ||
-                StateManager.instance.interactionState == StateManager.InteractionState.Call ||
-                StateManager.instance.interactionState == StateManager.InteractionState.Bye
+                StateManager.instance.interactionState == StateManager.InteractionState.Call
+                // || StateManager.instance.interactionState == StateManager.InteractionState.Bye
             );
 
         if (shouldPlayTrail)

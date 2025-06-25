@@ -12194,6 +12194,11 @@ PrefabInstance:
       propertyPath: _transformFeatureStateProvider
       value: 
       objectReference: {fileID: 1859199087}
+    - target: {fileID: 3999852934528074652, guid: 086bf15fce2f830428f19bb22c836677,
+        type: 3}
+      propertyPath: _transformFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1859199087}
     - target: {fileID: 6557242362660632140, guid: 086bf15fce2f830428f19bb22c836677,
         type: 3}
       propertyPath: m_Name
@@ -12287,11 +12292,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: WingTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 970850927367983406, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4183094779888053175, guid: 178dd71412d0cf54395f59bcb711a954,
         type: 3}
       propertyPath: birdTransform
       value: 
       objectReference: {fileID: 1475031650}
+    - target: {fileID: 6347998763973108987, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433475948760791204, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_StartSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433475948760791204, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_AllowInstancing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433475948760791204, guid: 178dd71412d0cf54395f59bcb711a954,
+        type: 3}
+      propertyPath: m_ResetSeedOnPlay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7351377421577680235, guid: 178dd71412d0cf54395f59bcb711a954,
         type: 3}
       propertyPath: m_LocalPosition.x
