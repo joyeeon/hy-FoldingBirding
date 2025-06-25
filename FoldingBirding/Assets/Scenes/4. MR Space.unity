@@ -21202,6 +21202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278225398}
+  - component: {fileID: 1278225399}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -21229,6 +21230,42 @@ Transform:
   - {fileID: 634102459}
   m_Father: {fileID: 441402993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278225399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278225397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bcb3acc8bae9f4f95ea98af69bb157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyPlanes:
+  - {fileID: 393972541}
+  - {fileID: 1868380702}
+  - {fileID: 1008930539}
+  - {fileID: 2076449429}
+  - {fileID: 634102458}
+  directionalLight: {fileID: 1995769977}
+  nightLights:
+  - {fileID: 192122434}
+  - {fileID: 1072742030}
+  - {fileID: 1365910336}
+  - {fileID: 2126411159}
+  - {fileID: 70647842}
+  - {fileID: 158130944}
+  - {fileID: 1517204130}
+  - {fileID: 63907764}
+  - {fileID: 2122216746}
+  - {fileID: 109751140}
+  - {fileID: 1511030018}
+  - {fileID: 1765970368}
+  - {fileID: 157166173}
+  - {fileID: 660566831}
+  - {fileID: 23482602}
+  totalPlayTime: 200
 --- !u!1001 &1281368368
 PrefabInstance:
   m_ObjectHideFlags: 0
